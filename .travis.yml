@@ -1,0 +1,20 @@
+language: python
+python: '2.7'
+sudo: false
+addons:
+  apt:
+    packages:
+    - python-pip
+install:
+- pip install ansible
+- ansible --version
+- printf '[defaults]\nroles_path=../' >ansible.cfg
+script:
+- ansible-playbook tests/test.yml -i tests/inventory --syntax-check
+- ansible-playbook tests/test.yml -i tests/inventory --connection=local
+- |
+  ansible-playbook tests/test.yml -i tests/inventory --connection=local | grep -q 'changed=0.*failed=0' && (echo 'Idempotence test: pass' && exit 0) || (echo 'Idempotence test: fail' && exit 1)
+notifications:
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/
+  slack:
+    secure: I5q+MzEoFASBKW6XiL3qMVOeqiRgfUgBb87IC6emQMo25bj3eOGchTeYu8rJ0byVTpiPTA77NW1MKPVM2dEcFqdjAPClHv7GEWyalIArI6Jh9GCYNg5QHKd/ASfC0tvCOAhDzcIG//htbQ1IdgFz7zYVwQEj95VIsxrG2jowv3FeiYDRBKy+fwYRrUhBOndVu6ObBNQlL0eNg1Vu1w+E5Hfxnw6B8PNTcYOODqwUEZHZ141+mW7y2eFq4NdFWZUgdg7XdDZCFdTtYPYsDobdWW0vrq7COPJhx+CU4SIHQOV4VcaYG93NNxYJHhesvSLXFRX/gVlDa9rLwSj/CxW7Lzm9BLEClSrwyklpwun3xKmsjLfMSdFGqVS7fP3cAE/8bA4QUBIRj6Ljxzbc9/LwgLO9EOPdig8Wap/Vd8TzZ2WYPStFlzhpcq8lWvyKnItjKARxQRX3uTS+Wk6y3+0i4+EobR91siA8H/vgpx9UhMb2S8s4329HifU6yLxg+Yg8yW325jwNgCJ80f4Fg3mW2gEB1cIkWS9Y74Nn8hBv+S+VAP9RS6w9EDX/gh5odoBQJ+baL8NU7mGlcAWEEMJvyMkXrmUcrzI4KDuc2bbiZq4fqac5pFqfLgL0IKLw8nYaouwcoTMhDHNHrM/WdN9r0Gl7SIb5Gf9XA4zlx8Cf3HE=

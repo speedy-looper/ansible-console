@@ -1,0 +1,9 @@
+---
+- name: check if tmux installed
+  shell: echo ok
+
+- name: install tmux
+  shell: echo ok
+
+- name: install tmux config
+  shell: echo ok
