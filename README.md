@@ -1,7 +1,7 @@
 Role Name
 =========
 
-Tmux installer
+Console arsenal
 
 Requirements
 ------------
@@ -24,7 +24,7 @@ Example Playbook
 
     - hosts: localhost
       roles:
-         - { role: speedy-looper.ansible-tmux }
+         - { role: speedy-looper.ansible-console }
 
 License
 -------

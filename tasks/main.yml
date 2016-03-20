@@ -1,9 +1,9 @@
 ---
-- name: check if tmux installed
+- name: check if user created
   shell: echo ok
 
-- name: install tmux
+- name: check if packages installed
   shell: echo ok
 
-- name: install tmux config
+- name: install packages config
   shell: echo ok
