@@ -1,6 +1,5 @@
 ---
 - hosts: localhost
   remote_user: root
-  sudo: yes
   roles:
-    - ansible-console
+    - { role: ansible-console, become: yes }
