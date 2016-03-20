@@ -1,3 +1,5 @@
 ---
 console:
   user: testant
+  groups:
+    - devops

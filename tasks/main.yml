@@ -22,6 +22,11 @@
     - tmux
     - vim
 
+- name: ensure groups
+  group:
+    name={{ item }} state=present
+  with_items: "{{ console.groups }}"
+
 - name: ensure user
   user:
     name={{ console.user }}
