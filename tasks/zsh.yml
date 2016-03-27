@@ -3,7 +3,7 @@
   user: name={{ console.user }} shell=/bin/zsh
 
 - name: ensure ~/history
-  file: path=~{{ console.user }}/history state=directory mode=0700
+  file: path=~{{ console.user }}/.history state=directory mode=0700
 
 - name: Generate ~/.zshrc
   template:
