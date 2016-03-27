@@ -23,18 +23,5 @@
     - tmux
     - vim
 
-- name: ensure groups
-  group:
-    name={{ item }} state=present
-  with_items: "{{ console.groups }}"
-
-- name: ensure user
-  user:
-    name={{ console.user }}
-    shell=/bin/zsh
-    groups=sudo,devops
-    append=yes
-
-# - name: change motd
-# - name: install packages config
-# - set locales to 'en_US.UTF-8'
+- include: user.yml
+- include: zsh.yml

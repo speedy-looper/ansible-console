@@ -19,6 +19,5 @@ script:
   - |
     ansible-playbook tests/test.yml -i tests/inventory --connection=local | grep -q 'changed=0.*failed=0' && (echo 'Idempotence test: pass' && exit 0) || (echo 'Idempotence test: fail' && exit 1)
 notifications:
-  webhooks: https://galaxy.ansible.com/api/v1/notifications/
   slack:
     secure: M8h7jm4MY3ou0LlCywJSySWPE/pgoGrBBhlBAH45J1fbzGKi4LbheE9dmgFcWOgzK/TgnOmutSdAa1vPK+LVJzbF0+6H/65zIRX8GdZqtjXw4nmAEri8KdhdLQc7Q20x3JvsIi7JXN1lf0khYe/v8jcY9UZUObiZAFXWfS+QrXT81fvgAlt1zW0COSZzqitF5OfBGtT6VDAQ780BGZbLlgFfAxUhjZmHpDjo4O5ma4OO5K10HN4Zu1ST7i/nipN1TohHNocYBA5wyy7uqVHmLyM99i4NQr6gvKdLcsAhBnDnL8LUpTi4MQoG/J9cnqdpblBJqOoNgN6MJUU2esOsJdLAFMpOpjRmT+WGkabi2T3AprgCTbT5zlXqv+RzRwRHf9XrUAUFmbSucRUQedjr9EkY60gKLo91oVFfj1Jti07oZ5O8MUjRaQIBm1ZbYTQwOFxQZAar+dBMLfx8HLEl/kXG+4/tE53d9aGr1/SQK5hB4AKCzUuW53IdjY9D2AqT7VRVNn4kTxMcM2cYOrY0eQeOjG4aD6yZ3elOkHNKukCEuztBW6eD6AlYEh7jK9R5BmJQ0i0iUAItzrVaIxQiCVw8SgcgYtRG2ky/6MLMeh6DEaQK+0iZHVLE6OG4QhT8b3Ne8ldGL3ktumaM0PoAicVlsfx8NHEC7k7F38lHU5A=
