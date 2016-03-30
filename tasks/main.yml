@@ -6,22 +6,13 @@
   apt:
     name={{ item }}
     state=present
-  with_items:
-    - locales
-    - ncurses-term
-    - mc
-    - ranger
-    - git
-    - zsh
-    - htop
-    - less
-    - file
-    - psmisc
-    - iftop
-    - nload
-    - lsof
-    - tmux
-    - vim
+  with_items: "{{ console.tools }}"
+
+- name: install packages
+  apt:
+    name={{ item }}
+    state=present
+  with_items: "{{ console.utils }}"
 
 - include: user.yml
 - include: zsh.yml

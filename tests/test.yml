@@ -1,5 +1,7 @@
 ---
 - hosts: localhost
   remote_user: root
+  # vars_files:
+  #   - ../credentials/tokens.yml
   roles:
     - { role: ansible-console, become: yes }

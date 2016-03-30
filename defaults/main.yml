@@ -3,3 +3,23 @@ console:
   user: testant
   groups:
     - devops
+  tools:
+    - git
+    - zsh
+    - tmux
+    - vim
+    - task
+  utils:
+    - locales
+    - ncurses-term
+    - mc
+    - ranger
+    - htop
+    - less
+    - file
+    - psmisc
+    - iftop
+    - nload
+    - lsof
+  dotfiles:
+    - taskrc

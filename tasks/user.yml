@@ -11,6 +11,14 @@
     groups=sudo,devops
     append=yes
 
+- name: Generate dotfiles
+  template:
+    mode=0644
+    src={{ item }}.j2
+    owner={{ console.user }}
+    dest=~{{ console.user }}/.{{ item }}
+  with_items: "{{ console.dotfiles }}"
+
 # - name: change motd
 # - name: install packages config
 # - set locales to 'en_US.UTF-8'
