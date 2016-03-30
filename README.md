@@ -26,6 +26,17 @@ Example Playbook
       roles:
          - { role: speedy-looper.ansible-console }
 
+Post-tweaks
+-----
+
+### Make taskwarrior work
+
+    # ~/.taskrc
+    taskd.credentials=[update here]
+
+    > intheam setup
+    > task sync
+
 License
 -------
 
